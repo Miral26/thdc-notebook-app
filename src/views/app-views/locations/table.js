@@ -9,27 +9,27 @@ const columns = [
   },
   {
     id: 2,
-    title: "Charge date",
-    name: "charge_date",
+    title: "Address",
+    name: "address",
   },
   {
     id: 3,
-    title: "Payment Amount",
-    name: "payment_amount",
+    title: "POC",
+    name: "poc",
   },
   {
     id: 4,
-    title: "Status",
-    name: "status",
+    title: "Phone",
+    name: "phone",
   },
   {
     id: 5,
-    title: "Notes",
-    name: "notes",
+    title: "Bank",
+    name: "bank",
   },
   {
     id: 6,
-    title: "Action",
+    title: "",
     name: "action",
   },
 ];
@@ -38,62 +38,47 @@ const people = [
   {
     id: 1,
     name: "Jane Cooper",
-    charge_date: "2021-08-25",
-    payment_amount: "$10",
-    status: "Pending",
-    role: "Admin",
-    notes: "-",
+    address: "15th St, Oakland, CA 90401",
+    poc: "April Salemo",
+    phone: "(123) 456-7890",
+    bank: "****7293",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
   },
   {
     id: 2,
-    name: "Cody Fisher",
-    charge_date: "2021-08-25",
-    payment_amount: "$10",
-    status: "Pending",
-    role: "Admin",
-    notes: "-",
-    image:
-      "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
-  },
-  {
-    id: 3,
-    name: "Esther Howard",
-    charge_date: "2021-08-25",
-    payment_amount: "$10",
-    status: "Pending",
-    role: "Admin",
-    notes: "-",
-    image:
-      "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
-  },
-  {
-    id: 4,
-    name: "Jenny Wilson",
-    charge_date: "2021-08-25",
-    payment_amount: "$10",
-    status: "Pending",
-    role: "Admin",
-    notes: "-",
+    name: "Jane Cooper",
+    address: "15th St, Oakland, CA 90401",
+    poc: "April Salemo",
+    phone: "(123) 456-7890",
+    bank: "****7293",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
   },
   {
-    id: 6,
-    name: "Kristin Watson",
-    charge_date: "2021-08-25",
-    payment_amount: "$10",
-    status: "Pending",
-    role: "Admin",
-    notes: "-",
+    id: 3,
+    name: "Jane Cooper",
+    address: "15th St, Oakland, CA 90401",
+    poc: "April Salemo",
+    phone: "(123) 456-7890",
+    bank: "****7293",
     image:
-      "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+  },
+  {
+    id: 4,
+    name: "Jane Cooper",
+    address: "15th St, Oakland, CA 90401",
+    poc: "April Salemo",
+    phone: "(123) 456-7890",
+    bank: "****7293",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
   },
 ];
 
-const ClaimTable = (props) => {
-  const { edit, selectedTab } = props;
+const LocationTable = (props) => {
+  const { editLocation } = props;
   return (
     <div className="flex flex-col">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -145,32 +130,23 @@ const ClaimTable = (props) => {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm text-gray-900">
-                          {person.charge_date}
+                          {person.address}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm text-gray-500">
-                          {person.payment_amount}
+                          {person.poc}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span
-                          className="
-                          px-2
-                          inline-flex
-                          text-xs
-                          leading-5
-                          font-semibold
-                          rounded-full
-                          bg-green-100
-                          text-green-800
-                        "
-                        >
-                          {selectedTab.name}
-                        </span>
+                        <div className="text-sm text-gray-500">
+                          {person.phone}
+                        </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {person.notes}
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-gray-500">
+                          {person.bank}
+                        </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                         <Link
@@ -178,7 +154,7 @@ const ClaimTable = (props) => {
                           className="dark-green-text"
                           onClick={(e) => {
                             e.preventDefault();
-                            edit();
+                            editLocation();
                           }}
                         >
                           Edit
@@ -196,4 +172,4 @@ const ClaimTable = (props) => {
   );
 };
 
-export default ClaimTable;
+export default LocationTable;

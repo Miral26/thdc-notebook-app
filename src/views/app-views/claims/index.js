@@ -1,4 +1,5 @@
-import Tabs from "components/tabs";
+import ClaimSideModal from "components/ClaimSideModal";
+import Tabs from "components/Tabs";
 import { useState } from "react";
 import ClaimTable from "./table";
 
@@ -13,6 +14,8 @@ const Claim = () => {
     name: "In Progress",
     id: "in-progress",
   });
+  const [showClaimModal, setShowClaimModal] = useState(false);
+
   return (
     <main className="flex-1">
       <div className="max-w-9xl mx-auto">
@@ -55,7 +58,7 @@ const Claim = () => {
               <Tabs
                 tabs={tabs}
                 selectedTab={selectedTab}
-              setSelectedTab={setSelectedTab}
+                setSelectedTab={setSelectedTab}
               />
               <button
                 type="button"
@@ -75,6 +78,7 @@ const Claim = () => {
                           focus:outline-none
                           focus:ring-0
                         "
+                onClick={() => setShowClaimModal(true)}
               >
                 Create
               </button>
@@ -82,9 +86,17 @@ const Claim = () => {
           </div>
         </div>
         <section className="mt-8 pb-16">
-          <ClaimTable selectedTab={selectedTab} />
+          <ClaimTable
+            selectedTab={selectedTab}
+            edit={() => setShowClaimModal(!showClaimModal)}
+          />
         </section>
       </div>
+      <ClaimSideModal
+        showModal={showClaimModal}
+        cancel={() => setShowClaimModal(!showClaimModal)}
+        save={() => setShowClaimModal(!showClaimModal)}
+      />
     </main>
   );
 };

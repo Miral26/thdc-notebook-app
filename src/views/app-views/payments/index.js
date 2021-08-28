@@ -1,4 +1,5 @@
-import Tabs from "components/tabs";
+import PaymentSideModal from "components/PaymentSideModal";
+import Tabs from "components/Tabs";
 import { useState } from "react";
 import ClaimTable from "./table";
 
@@ -14,6 +15,8 @@ const Claim = () => {
     name: "Pending",
     id: "pending",
   });
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+
   return (
     <main className="flex-1">
       <div className="max-w-9xl mx-auto">
@@ -76,6 +79,7 @@ const Claim = () => {
                           focus:outline-none
                           focus:ring-0
                         "
+                onClick={() => setShowPaymentModal(true)}
               >
                 Create
               </button>
@@ -86,6 +90,11 @@ const Claim = () => {
           <ClaimTable selectedTab={selectedTab} />
         </section>
       </div>
+      <PaymentSideModal
+        showModal={showPaymentModal}
+        cancel={() => setShowPaymentModal(!showPaymentModal)}
+        save={() => setShowPaymentModal(!showPaymentModal)}
+      />
     </main>
   );
 };
