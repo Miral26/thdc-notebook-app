@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom"
+import logo from "assets/images/logo.png"
 
 const LogIn = () => {
   const [email, setEmail] = useState("")
@@ -23,13 +24,13 @@ const LogIn = () => {
           <div>
             <img
               className="h-12 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+              src={logo}
               alt="Workflow"
             />
             <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
             <p className="mt-2 text-sm text-gray-600">
               Or{' '}
-              <Link to="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+              <Link to="#" className="font-medium dark-green-text hover-light-green-text">
                 start your 14-day free trial
               </Link>
             </p>
@@ -149,7 +150,7 @@ const LogIn = () => {
                   </div>
 
                   <div className="text-sm">
-                    <Link to="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                    <Link to="#" className="font-medium dark-green-text hover-light-green-text">
                       Forgot your password?
                     </Link>
                   </div>
@@ -158,7 +159,7 @@ const LogIn = () => {
                 <div>
                   <button
                     type="submit"
-                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white dark-green-bg hover-light-green-bg focus:outline-none focus:ring-0"
                   >
                     Sign in
                   </button>

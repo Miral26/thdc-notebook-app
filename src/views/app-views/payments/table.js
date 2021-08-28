@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const columns = [
   {
@@ -171,12 +172,9 @@ const ClaimTable = (props) => {
                         {person.notes}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <a
-                          href="javascript:void(0)"
-                          className="dark-green-text"
-                        >
+                        <Link to="#" className="dark-green-text">
                           Edit
-                        </a>
+                        </Link>
                       </td>
                     </tr>
                   );
