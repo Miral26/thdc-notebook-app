@@ -14,6 +14,7 @@ const Claim = () => {
     name: "In Progress",
     id: "in-progress",
   });
+
   const [showClaimModal, setShowClaimModal] = useState(false);
 
   return (
