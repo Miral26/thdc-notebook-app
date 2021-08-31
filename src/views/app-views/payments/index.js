@@ -1,5 +1,5 @@
 import PaymentSideModal from "components/PaymentSideModal";
-import Tabs from "components/Tabs";
+import Tabs from "components/tabs";
 import { useState } from "react";
 import ClaimTable from "./table";
 
