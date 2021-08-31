@@ -1,9 +1,9 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { ExclamationIcon } from "@heroicons/react/outline";
+import { CheckIcon } from "@heroicons/react/outline";
 
-const ConfirmModal = (props) => {
+const CronJobModal = (props) => {
   const { showModal = false, cancel, save } = props;
 
   return (
@@ -75,28 +75,25 @@ const ConfirmModal = (props) => {
               sm:p-6
             "
             >
-              <div class="sm:flex sm:items-start">
+              <div>
                 <div
                   class="
                   mx-auto
-                  flex-shrink-0 flex
+                  flex
                   items-center
                   justify-center
                   h-12
                   w-12
                   rounded-full
-                  bg-red-100
-                  sm:mx-0
-                  sm:h-10
-                  sm:w-10
+                  bg-green-100
                 "
                 >
-                  <ExclamationIcon
-                    class="h-6 w-6 text-red-600"
+                  <CheckIcon
+                    class="h-6 w-6 text-green-600"
                     aria-hidden="true"
                   />
                 </div>
-                <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                <div class="mt-3 text-center sm:mt-5">
                   <Dialog.Title
                     as="h3"
                     class="text-lg leading-6 font-medium text-gray-900"
@@ -110,7 +107,15 @@ const ConfirmModal = (props) => {
                   </div>
                 </div>
               </div>
-              <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
+              <div
+                class="
+                mt-5
+                sm:mt-6
+                sm:grid sm:grid-cols-2
+                sm:gap-3
+                sm:grid-flow-row-dense
+              "
+              >
                 <button
                   type="button"
                   class="
@@ -122,20 +127,19 @@ const ConfirmModal = (props) => {
                   shadow-sm
                   px-4
                   py-2
-                  bg-red-600
                   text-base
                   font-medium
                   text-white
-                  hover:bg-red-700
+                  dark-green-bg
+                  hover-light-green-bg
                   focus:outline-none
                   focus:ring-0
-                  sm:ml-3
-                  sm:w-auto
+                  sm:col-start-2
                   sm:text-sm
                 "
                   onClick={save}
                 >
-                  Yes, delete it!
+                  Yes, run it!
                 </button>
                 <button
                   type="button"
@@ -157,7 +161,7 @@ const ConfirmModal = (props) => {
                   focus:outline-none
                   focus:ring-0
                   sm:mt-0
-                  sm:w-auto
+                  sm:col-start-1
                   sm:text-sm
                 "
                   onClick={cancel}
@@ -173,4 +177,4 @@ const ConfirmModal = (props) => {
   );
 };
 
-export default ConfirmModal;
+export default CronJobModal;

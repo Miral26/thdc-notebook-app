@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Layout from "layouts";
 
 const App = () => {
@@ -9,6 +9,6 @@ const App = () => {
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const columns = [
   {
     id: 1,
-    title: "Name",
+    title: "Patient",
     name: "name",
   },
   {
@@ -43,8 +43,6 @@ const people = [
     status: "Pending",
     role: "Admin",
     notes: "-",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
   },
   {
     id: 2,
@@ -54,8 +52,6 @@ const people = [
     status: "Pending",
     role: "Admin",
     notes: "-",
-    image:
-      "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
   },
   {
     id: 3,
@@ -65,8 +61,6 @@ const people = [
     status: "Pending",
     role: "Admin",
     notes: "-",
-    image:
-      "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
   },
   {
     id: 4,
@@ -76,8 +70,6 @@ const people = [
     status: "Pending",
     role: "Admin",
     notes: "-",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
   },
   {
     id: 6,
@@ -87,8 +79,6 @@ const people = [
     status: "Pending",
     role: "Admin",
     notes: "-",
-    image:
-      "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
   },
 ];
 
@@ -129,13 +119,6 @@ const ClaimTable = (props) => {
                     <tr key={person.id}>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
-                          <div className="flex-shrink-0 h-10 w-10">
-                            <img
-                              className="h-10 w-10 rounded-full"
-                              src={person.image}
-                              alt=""
-                            />
-                          </div>
                           <div className="ml-4">
                             <div className="text-sm font-medium text-gray-900">
                               {person.name}
@@ -144,7 +127,7 @@ const ClaimTable = (props) => {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-900">
+                        <div className="text-sm text-gray-500">
                           {person.charge_date}
                         </div>
                       </td>

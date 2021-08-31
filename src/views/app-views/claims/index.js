@@ -1,5 +1,5 @@
 import ClaimSideModal from "components/ClaimSideModal";
-import Tabs from "components/tabs";
+import Tabs from "components/Tabs";
 import { useState } from "react";
 import ClaimTable from "./table";
 
@@ -14,7 +14,6 @@ const Claim = () => {
     name: "In Progress",
     id: "in-progress",
   });
-
   const [showClaimModal, setShowClaimModal] = useState(false);
 
   return (

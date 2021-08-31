@@ -1,8 +1,9 @@
-import React, { Fragment } from "react";
-import { Menu, Transition } from "@headlessui/react";
-import { MenuAlt2Icon } from "@heroicons/react/outline";
+import React, { useState } from "react";
+import { Menu } from "@headlessui/react";
+import { MenuAlt2Icon, HomeIcon } from "@heroicons/react/outline";
 import { SearchIcon } from "@heroicons/react/solid";
 import { useHistory } from "react-router-dom";
+import CronJobModal from "components/CronJobModal";
 
 const userNavigation = [
   { name: "Your Profile", href: "#", click: null },
@@ -23,6 +24,8 @@ const classNames = (...classes) => {
 
 export default function TopBar(props) {
   const history = useHistory();
+  const [showCronJobModal, setShowCronJobModal] = useState(false);
+
   return (
     <div>
       <header className="w-full">
@@ -58,27 +61,41 @@ export default function TopBar(props) {
                 </div>
               </form>
             </div>
-            <div className="ml-2 flex items-center space-x-4 sm:ml-6 sm:space-x-6">
-              {/* Profile dropdown */}
-              <Menu as="div" className="relative flex-shrink-0">
+
+            <div class="ml-2 flex items-center space-x-4 sm:ml-6 sm:space-x-6">
+              <Menu as="div" class="relative inline-block text-left">
                 <div>
-                  <Menu.Button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-0">
-                    <span className="sr-only">Open user menu</span>
-                    <img
-                      className="h-8 w-8 rounded-full"
-                      src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
-                      alt=""
+                  <Menu.Button
+                    class="
+                    bg-green-100
+                    rounded-lg
+                    flex
+                    w-40
+                    items-center
+                    text-gray-400
+                    hover:text-gray-600
+                    focus:outline-none
+                    mr-3
+                    pl-2
+                    pr-4
+                    py-2
+                  "
+                  >
+                    <span class="sr-only">Open options</span>
+                    <HomeIcon
+                      class="h-5 w-5 light-green-text"
+                      aria-hidden="true"
                     />
                   </Menu.Button>
                 </div>
-                <Transition
-                  as={Fragment}
-                  enter="transition ease-out duration-100"
-                  enterFrom="transform opacity-0 scale-95"
-                  enterTo="transform opacity-100 scale-100"
-                  leave="transition ease-in duration-75"
-                  leaveFrom="transform opacity-100 scale-100"
-                  leaveTo="transform opacity-0 scale-95"
+
+                <transition
+                  enter-active-class="transition ease-out duration-100"
+                  enter-from-class="transform opacity-0 scale-95"
+                  enter-to-class="transform opacity-100 scale-100"
+                  leave-active-class="transition ease-in duration-75"
+                  leave-from-class="transform opacity-100 scale-100"
+                  leave-to-class="transform opacity-0 scale-95"
                 >
                   <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white  focus:outline-none">
                     {userNavigation.map((item) => (
@@ -100,12 +117,39 @@ export default function TopBar(props) {
                       </Menu.Item>
                     ))}
                   </Menu.Items>
-                </Transition>
+                </transition>
               </Menu>
+
+              <button
+                type="button"
+                class="
+                inline-flex
+                items-center
+                px-3
+                py-1.5
+                border border-transparent
+                text-xs
+                font-medium
+                rounded-full
+                shadow-sm
+                text-white
+                dark-green-bg
+                hover-light-green-bg
+                focus:outline-none
+              "
+                onClick={() => setShowCronJobModal(!showCronJobModal)}
+              >
+                Run daily job
+              </button>
             </div>
           </div>
         </div>
       </header>
+      <CronJobModal
+        showModal={showCronJobModal}
+        save={() => setShowCronJobModal(!showCronJobModal)}
+        cancel={() => setShowCronJobModal(!showCronJobModal)}
+      />
     </div>
   );
 }
